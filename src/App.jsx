@@ -11,11 +11,13 @@ export default function App() {
   const [people, setPeople] = useState([])
 
   useEffect(() => {
-    fetch('https://randomuser.me/documentation')
+    fetch('https://randomuser.me/api')
     .then(res => res.json())
-    .then(people => setPeople(people))
+    .then(data => setPeople(data.result))
   }, []
   )
+
+
 
   return (
     <>
@@ -27,7 +29,7 @@ export default function App() {
               <Link to="/dashboard">Dashboard</Link>
             </li>
             <li>
-              <Link to="/profiles">PersonProfile</Link>
+              <Link to="/view">PersonProfile</Link>
             </li>
           </ul>
         </nav>
@@ -35,9 +37,9 @@ export default function App() {
       <Routes>
         <Route 
           path="/Dashboard" 
-          element={<Dashboard people={people} hiredPeople={hiredPeople}/>} />
+          element={<Dashboard people={people} setHiredPeople={setHiredPeople}/>} />
         <Route
-          path="/PersonProfile"
+          path="/view/:id"
           element={<PersonProfile person={people}/>}
         />
       </Routes>
