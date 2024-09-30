@@ -4,6 +4,8 @@ import HireForm from './components/HireForm'
 function PersonProfile(props) {
   const [person, setPerson] = useState(null)
 
+  
+
   if (!person) return <p>Loading...</p>
 
   return (

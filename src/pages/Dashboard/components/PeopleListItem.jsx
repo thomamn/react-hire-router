@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom"
 
 
 
-function PeopleListItem(props,setHiredPeople) {
+function PeopleListItem({person, setHiredPeople}) {
   
-  const { person } = props
-
+  //const { person } = props
+  console.log(person)
   
 
   return (

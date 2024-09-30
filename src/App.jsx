@@ -37,7 +37,7 @@ export default function App() {
       <Routes>
         <Route 
           path="/Dashboard" 
-          element={<Dashboard people={people} setHiredPeople={setHiredPeople}/>} />
+          element={<Dashboard props={[people, setHiredPeople]}/>} />
         <Route
           path="/view/:id"
           element={<PersonProfile person={people}/>}

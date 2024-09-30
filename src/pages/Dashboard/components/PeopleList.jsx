@@ -1,7 +1,7 @@
 import PeopleListItem from './PeopleListItem'
 
-function PeopleList(props, setHiredPeople) {
-  const { people } = props
+function PeopleList({people, setHiredPeople}) {
+  //const { people } = props
 
   return (
     <ul>
