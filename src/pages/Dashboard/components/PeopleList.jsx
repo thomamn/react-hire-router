@@ -6,7 +6,7 @@ function PeopleList({people, setHiredPeople}) {
   return (
     <ul>
       {people.map((person, index) => (
-        <PeopleListItem key={index} person={person} setHiredPeople={setHiredPeople}/>
+        <PeopleListItem key={index} person={person} setHiredPeople={setHiredPeople} num={index}/>
       ))}
     </ul>
   )

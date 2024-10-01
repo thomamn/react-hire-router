@@ -4,10 +4,16 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 function PersonProfile(props) {
-  const [person, setPerson] = useState(null)
+  const [person, setPerson] = useState({name: {first: "", last:""}})
   const {id} = useParams();
-
-  setPerson(props.people[Number(id)])
+  const {people} = props
+  const {setHiredPeople}=props
+  
+  useEffect(() => {
+    setPerson(people[Number(id)])
+  }, [people, id])
+  
+  
 
 
   if (!person) return <p>Loading...</p>
@@ -17,7 +23,7 @@ function PersonProfile(props) {
       <h2>
         {person.name.first} {person.name.last}
       </h2>
-      <HireForm person={person} />
+      <HireForm person={person} setHiredPeople={setHiredPeople}/>
     </article>
   )
 }

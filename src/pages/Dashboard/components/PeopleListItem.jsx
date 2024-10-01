@@ -2,11 +2,13 @@ import { useNavigate } from "react-router-dom"
 
 
 
-function PeopleListItem({person, setHiredPeople}) {
+function PeopleListItem(props) {
   
-  //const { person } = props
+  const { person } = props
+  const {num} =props
   console.log(person)
   
+  const navigate=useNavigate()
 
   return (
     <li>
@@ -15,8 +17,8 @@ function PeopleListItem({person, setHiredPeople}) {
       </h3>
       {person.wage && <p>Wage: £{person.wage}</p>}
 
-      <button onClick={()=>setHiredPeople(prev => [...prev, person])}>
-        Hire
+      <button onClick={()=>navigate("../view/"+num)}>
+        See Profile
       </button>
     </li>
   )

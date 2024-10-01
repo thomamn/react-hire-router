@@ -11,9 +11,9 @@ export default function App() {
   const [people, setPeople] = useState([])
 
   useEffect(() => {
-    fetch('https://randomuser.me/api')
+    fetch('https://randomuser.me/api/?results=50')
     .then(res => res.json())
-    .then(data => setPeople(data.result))
+    .then(data => setPeople(data.results))
   }, []
   )
 
@@ -36,11 +36,11 @@ export default function App() {
       </header>
       <Routes>
         <Route 
-          path="/Dashboard" 
-          element={<Dashboard props={[people, setHiredPeople, hiredPeople]}/>} />
+          path="/dashboard" 
+          element={<Dashboard people={people} setHiredPeople={setHiredPeople} hiredPeople={hiredPeople}/>} />
         <Route
           path="/view/:id"
-          element={<PersonProfile props={people}/>}
+          element={<PersonProfile people={people} setHiredPeople={setHiredPeople}/>}
         />
       </Routes>
     </>
