@@ -37,10 +37,10 @@ export default function App() {
       <Routes>
         <Route 
           path="/Dashboard" 
-          element={<Dashboard props={[people, setHiredPeople]}/>} />
+          element={<Dashboard props={[people, setHiredPeople, hiredPeople]}/>} />
         <Route
           path="/view/:id"
-          element={<PersonProfile person={people}/>}
+          element={<PersonProfile props={people}/>}
         />
       </Routes>
     </>
